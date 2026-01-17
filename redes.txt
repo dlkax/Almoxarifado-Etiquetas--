@@ -1,3 +1,0 @@
-A vida de um pacote:
-
-Aplicação - HTTP POST: 
