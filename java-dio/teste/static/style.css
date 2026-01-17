@@ -1,92 +1,185 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Inter, Arial, sans-serif;
+    background: #f6f7f9;
+    padding: 30px;
+    color: #111;
 }
 
-form input {
-    margin: 5px;
-    padding: 5px;
+h2 {
+    margin-bottom: 20px;
 }
 
-/* Etiqueta */
+/* FORM */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 14px;
+}
+
+.form-box {
+    background: white;
+    padding: 14px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-box h4 {
+    margin: 0 0 4px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-box input {
+    padding: 7px 9px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+}
+
+.form-box input:focus {
+    outline: none;
+    border-color: #4a6cf7;
+}
+
+/* LINHA DO BOTÃO GERAR */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.btn-gerar {
+    padding: 8px 22px;
+    border-radius: 10px;
+    border: none;
+    background: #111;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-gerar:hover {
+    background: #000;
+}
+
+/* ERRO */
+.erro {
+    color: #c62828;
+    margin-bottom: 10px;
+}
+
+/* ETIQUETAS */
+.etiquetas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 8cm);
+    gap: 20px;
+}
+
 .etiqueta {
     width: 8cm;
     height: 10cm;
+    background: white;
     border: 2px solid black;
-    padding: 8px;
+    padding: 10px;
     box-sizing: border-box;
 
     display: flex;
     flex-direction: column;
-
-    justify-content: flex-start;   /* sobe o conteúdo */
-    align-items: center;           /* centraliza horizontalmente */
-
+    justify-content: flex-start;
+    align-items: center;
     text-align: center;
 }
 
-/* Linhas */
+/* LINHAS */
 .linha {
-    margin-bottom: 8px;
-    font-size: 13px;
     width: 100%;
+    margin-bottom: 8px;
+    font-size: 12px;
 }
 
-/* Código em destaque */
 .codigo {
     border-bottom: 1px solid black;
     padding-bottom: 6px;
-    font-size: 14px;
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
 .codigo strong {
     font-size: 18px;
+    margin-top: 4px;
     display: block;
-    margin-top: 6px;
 }
 
-/* Descrição */
 .descricao {
     border-bottom: 1px solid black;
     padding-bottom: 6px;
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
 .texto-descricao {
-    font-size: 15px;
-    margin-top: 6px;
+    font-size: 11px;
     font-weight: bold;
+    margin-top: 4px;
 }
 
-/* Quantidade */
 .quantidade {
-    margin-top: 10px;
-    border-bottom: 1px solid black;   /* linha abaixo da quantidade */
+    border-bottom: 1px solid black;
     padding-bottom: 6px;
-    width: 100%;
+    margin-top: 6px;
 }
 
 .quantidade strong {
     font-size: 18px;
-    display: block;
     margin-top: 4px;
+    display: block;
 }
 
-/* Rodapé */
 .rodape {
-    margin-top: 50%;
+    margin-top: auto;
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    font-size: 12px;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 11px;
 }
 
-/* Impressão */
+/* BOTÃO PRINT */
+.btn-print {
+    margin-top: 20px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    background: #111;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-print:hover {
+    background: #000;
+}
+
+/* PRINT */
 @media print {
+    body {
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+
     h2,
     form,
-    button {
-        display: none;
+    .btn-print {
+        display: none !important;
+    }
+
+    .etiquetas-container {
+        gap: 0;
+        margin: 0;
+        padding: 0;
     }
 
     .etiqueta {
@@ -95,8 +188,7 @@ form input {
     }
 }
 
-/* Tamanho exato da etiqueta (IMPORTANTE) */
 @page {
-    size: 8cm 10cm;   /* bate com a altura da etiqueta */
+    size: auto;
     margin: 0;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Etiquetas - TOHM</title>
@@ -7,35 +7,73 @@
 </head>
 <body>
 
-<h2>Gerar Etiqueta</h2>
+<h2>Etiquetas Almoxarifado - TOHM</h2>
 
-<form method="post">
-    <input type="text" name="codigo" placeholder="Código do produto" required>
-    <input type="number" name="quantidade" placeholder="Quantidade retirada" required>
-    <input type="text" name="op" placeholder="OP" required>
-    <button type="submit">Gerar</button>
+<form method="post" class="form-grid">
+
+    <div class="form-box">
+        <h4>Etiqueta 1</h4>
+        <input type="text" name="codigo1" placeholder="Código">
+        <input type="number" name="quantidade1" placeholder="Qtd">
+        <input type="text" name="op1" placeholder="OP">
+    </div>
+
+    <div class="form-box">
+        <h4>Etiqueta 2</h4>
+        <input type="text" name="codigo2" placeholder="Código">
+        <input type="number" name="quantidade2" placeholder="Qtd">
+        <input type="text" name="op2" placeholder="OP">
+    </div>
+
+    <div class="form-box">
+        <h4>Etiqueta 3</h4>
+        <input type="text" name="codigo3" placeholder="Código">
+        <input type="number" name="quantidade3" placeholder="Qtd">
+        <input type="text" name="op3" placeholder="OP">
+    </div>
+
+    <div class="form-box">
+        <h4>Etiqueta 4</h4>
+        <input type="text" name="codigo4" placeholder="Código">
+        <input type="number" name="quantidade4" placeholder="Qtd">
+        <input type="text" name="op4" placeholder="OP">
+    </div>
+
+    <div class="form-wrapper">
+    <div class="form-actions">
+        <!-- Etiqueta 1 -->
+        <!-- Etiqueta 2 -->
+        <!-- Etiqueta 3 -->
+        <!-- Etiqueta 4 -->
+    </div>
+
+    <div class="gerar-row">
+        <button class="btn-gerar">Gerar</button>
+    </div>
+</div>
+
 </form>
 
 {% if erro %}
-<p style="color:red;">{{ erro }}</p>
+<p class="erro">{{ erro }}</p>
 {% endif %}
 
-{% if etiqueta %}
+<div class="etiquetas-container">
+
+{% for etiqueta in [etiqueta1, etiqueta2, etiqueta3, etiqueta4] if etiqueta %}
 <div class="etiqueta">
     <div class="linha codigo">
-        <span>CÓDIGO:</span>
+        <span>CÓDIGO</span>
         <strong>{{ etiqueta.codigo }}</strong>
     </div>
 
     <div class="linha descricao">
-        <span>DESCRIÇÃO:</span>
-        <div class="texto-descricao">
-            {{ etiqueta.descricao }}
-        </div>
+        <span>DESCRIÇÃO</span>
+        <div class="texto-descricao">{{ etiqueta.descricao }}</div>
     </div>
 
     <div class="linha quantidade">
-        <span>QUANTIDADE:</span>
+        <span>QUANTIDADE</span>
         <strong>{{ etiqueta.quantidade }}</strong>
     </div>
 
@@ -44,8 +82,12 @@
         <span>{{ etiqueta.data }}</span>
     </div>
 </div>
+{% endfor %}
 
-<button onclick="window.print()">imprimir</button>
+</div>
+
+{% if etiqueta1 or etiqueta2 or etiqueta3 or etiqueta4 %}
+<button class="btn-print" onclick="window.print()">Imprimir</button>
 {% endif %}
 
 </body>
