@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Etiquetas - TOHM</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h2>Gerar Etiqueta</h2>
+
+<form method="post">
+    <input type="text" name="codigo" placeholder="Código do produto" required>
+    <input type="number" name="quantidade" placeholder="Quantidade retirada" required>
+    <input type="text" name="op" placeholder="OP" required>
+    <button type="submit">Gerar</button>
+</form>
+
+{% if erro %}
+<p style="color:red;">{{ erro }}</p>
+{% endif %}
+
+{% if etiqueta %}
+<div class="etiqueta">
+    <div class="linha codigo">
+        <span>CÓDIGO:</span>
+        <strong>{{ etiqueta.codigo }}</strong>
+    </div>
+
+    <div class="linha descricao">
+        <span>DESCRIÇÃO:</span>
+        <div class="texto-descricao">
+            {{ etiqueta.descricao }}
+        </div>
+    </div>
+
+    <div class="linha quantidade">
+        <span>QUANTIDADE:</span>
+        <strong>{{ etiqueta.quantidade }}</strong>
+    </div>
+
+    <div class="rodape">
+        <span><strong>OP:</strong> {{ etiqueta.op }}</span>
+        <span>{{ etiqueta.data }}</span>
+    </div>
+</div>
+
+<button onclick="window.print()">imprimir</button>
+{% endif %}
+
+</body>
+</html>

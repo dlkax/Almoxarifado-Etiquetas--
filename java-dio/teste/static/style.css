@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+form input {
+    margin: 5px;
+    padding: 5px;
+}
+
+/* Etiqueta */
+.etiqueta {
+    width: 8cm;
+    height: 10cm;
+    border: 2px solid black;
+    padding: 8px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;   /* sobe o conteúdo */
+    align-items: center;           /* centraliza horizontalmente */
+
+    text-align: center;
+}
+
+/* Linhas */
+.linha {
+    margin-bottom: 8px;
+    font-size: 13px;
+    width: 100%;
+}
+
+/* Código em destaque */
+.codigo {
+    border-bottom: 1px solid black;
+    padding-bottom: 6px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.codigo strong {
+    font-size: 18px;
+    display: block;
+    margin-top: 6px;
+}
+
+/* Descrição */
+.descricao {
+    border-bottom: 1px solid black;
+    padding-bottom: 6px;
+    margin-top: 10px;
+}
+
+.texto-descricao {
+    font-size: 15px;
+    margin-top: 6px;
+    font-weight: bold;
+}
+
+/* Quantidade */
+.quantidade {
+    margin-top: 10px;
+    border-bottom: 1px solid black;   /* linha abaixo da quantidade */
+    padding-bottom: 6px;
+    width: 100%;
+}
+
+.quantidade strong {
+    font-size: 18px;
+    display: block;
+    margin-top: 4px;
+}
+
+/* Rodapé */
+.rodape {
+    margin-top: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 12px;
+}
+
+/* Impressão */
+@media print {
+    h2,
+    form,
+    button {
+        display: none;
+    }
+
+    .etiqueta {
+        margin: 0;
+        page-break-inside: avoid;
+    }
+}
+
+/* Tamanho exato da etiqueta (IMPORTANTE) */
+@page {
+    size: 8cm 10cm;   /* bate com a altura da etiqueta */
+    margin: 0;
+}
