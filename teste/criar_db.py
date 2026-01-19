@@ -17,7 +17,10 @@ CREATE TABLE IF NOT EXISTS produtos (
 with open(BASE_DIR / "dados_convertidos.txt", encoding="utf-8") as f:
     texto = f.read()
 
-dados = re.findall(r'\("([^"]+)","([^"]+)"\)', texto)
+dados = [
+    (codigo.strip(), descricao.strip())
+    for codigo, descricao in re.findall(r'\("([^"]+)","([^"]+)"\)', texto)
+]
 
 cursor.executemany(
     "INSERT OR IGNORE INTO produtos (codigo, descricao) VALUES (?, ?)",
