@@ -1,7 +1,10 @@
 import sqlite3
 import re
+from pathlib import Path
 
-conn = sqlite3.connect("database.db")
+BASE_DIR = Path(__file__).resolve().parent
+
+conn = sqlite3.connect(BASE_DIR / "database.db")
 cursor = conn.cursor()
 
 cursor.execute("""
@@ -11,7 +14,7 @@ CREATE TABLE IF NOT EXISTS produtos (
 )
 """)
 
-with open("dados_convertidos.txt", encoding="utf-8") as f:
+with open(BASE_DIR / "dados_convertidos.txt", encoding="utf-8") as f:
     texto = f.read()
 
 dados = re.findall(r'\("([^"]+)","([^"]+)"\)', texto)

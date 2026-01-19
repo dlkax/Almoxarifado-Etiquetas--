@@ -3796,4 +3796,5 @@
 8-2672/008     	GRADE 8" MALIBU MG C/ TWEETER 1" TITANIO          
 8-4136/100     	GRADE WS XS-S TW DOME 20MM/ALUMINIO               
 8-4136/100     	GRADE WS XS-S TW DOME 20MM/ALUMINIO               
-8-2400/010     	GRADE 8" FINELINE PRETA C/TWEETER & LED RGB                                           
+8-2400/010     	GRADE 8" FINELINE PRETA C/TWEETER & LED RGB         
+8-2058/009      GRADE 8" REVO V3 XS-SS PRETA-TWEETER & LED RGB                                  

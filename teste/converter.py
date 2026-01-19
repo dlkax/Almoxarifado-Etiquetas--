@@ -1,7 +1,12 @@
 import re
+from pathlib import Path
 
-with open("dados_brutos.txt", encoding="utf-8") as f:
+BASE_DIR = Path(__file__).resolve().parent   # pasta teste
+arquivo = BASE_DIR / "dados_brutos.txt"
+
+with open(arquivo, encoding="utf-8") as f:
     linhas = f.readlines()
+
 
 saida = []
 ignoradas = 0
